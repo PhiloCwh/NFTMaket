@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "../34_ERC721/IERC721.sol";
-import "../34_ERC721/IERC721Receiver.sol";
-import "../34_ERC721/WTFApe.sol";
-
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 contract NFTSwap is IERC721Receiver{
     event List(address indexed seller, address indexed nftAddr, uint256 indexed tokenId, uint256 price);
     event Purchase(address indexed buyer, address indexed nftAddr, uint256 indexed tokenId, uint256 price);
@@ -96,7 +94,7 @@ contract NFTSwap is IERC721Receiver{
         address from,
         uint tokenId,
         bytes calldata data
-    ) external override returns (bytes4){
+    ) external  override returns (bytes4){
         return IERC721Receiver.onERC721Received.selector;
     }
 }
